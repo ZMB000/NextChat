@@ -337,7 +337,7 @@ export function getHeaders(ignoreHeaders: boolean = false) {
 
   const authHeader = getAuthHeader();
 
-  console.log("[Debug] [Baidu] apiKey:", apiKey); 
+  // console.log("[Debug] apiKey:", apiKey); 
   
   const bearerToken = getBearerToken(
     apiKey,
@@ -352,9 +352,9 @@ export function getHeaders(ignoreHeaders: boolean = false) {
     );
   }
 
-  console.log("[Debug] authHeader:", authHeader);
-  console.log("[Debug] bearerToken:", bearerToken);
-  console.log("[Debug] accessCode:", accessStore.accessCode);
+  // console.log("[Debug] authHeader:", authHeader);
+  // console.log("[Debug] bearerToken:", bearerToken);
+  // console.log("[Debug] accessCode:", accessStore.accessCode);
   console.log("[Debug] Final Headers Sent:", headers);
 
   return headers;
