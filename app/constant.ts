@@ -530,18 +530,26 @@ const anthropicModels = [
   "claude-3-5-sonnet-latest",
 ];
 
+// const baiduModels = [
+//   "ernie-4.0-turbo-8k",
+//   "ernie-4.0-8k",
+//   "ernie-4.0-8k-preview",
+//   "ernie-4.0-8k-preview-0518",
+//   "ernie-4.0-8k-latest",
+//   "ernie-3.5-8k",
+//   "ernie-3.5-8k-0205",
+//   "ernie-speed-128k",
+//   "ernie-speed-8k",
+//   "ernie-lite-8k",
+//   "ernie-tiny-8k",
+// ];
+
 const baiduModels = [
-  "ernie-4.0-turbo-8k",
-  "ernie-4.0-8k",
-  "ernie-4.0-8k-preview",
-  "ernie-4.0-8k-preview-0518",
   "ernie-4.0-8k-latest",
-  "ernie-3.5-8k",
-  "ernie-3.5-8k-0205",
-  "ernie-speed-128k",
-  "ernie-speed-8k",
-  "ernie-lite-8k",
-  "ernie-tiny-8k",
+  "ernie-4.0-turbo-8k-latest",
+  "ernie-4.0-turbo-128k",
+  "deepseek-v3",
+  "deepseek-r1",
 ];
 
 const bytedanceModels = [
