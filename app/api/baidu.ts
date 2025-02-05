@@ -87,7 +87,8 @@ async function request(req: NextRequest) {
   const fetchOptions: RequestInit = {
     headers: {
       "Content-Type": "application/json",
-      Authorization: req.headers.get("Authorization") ?? "",
+      // Authorization: req.headers.get("Authorization") ?? "",
+      Authorization: `Hello`,
     },
     method: req.method,
     body: req.body,
