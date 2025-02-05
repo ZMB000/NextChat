@@ -9,7 +9,7 @@ import { prettyObject } from "@/app/utils/format";
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/app/api/auth";
 import { isModelNotavailableInServer } from "@/app/utils/model";
-import { getAccessToken } from "@/app/utils/baidu";
+// import { getAccessToken } from "@/app/utils/baidu";
 
 const serverConfig = getServerSideConfig();
 
@@ -30,17 +30,17 @@ export async function handle(
     });
   }
 
-  if (!serverConfig.baiduApiKey || !serverConfig.baiduSecretKey) {
-    return NextResponse.json(
-      {
-        error: true,
-        message: `missing BAIDU_API_KEY or BAIDU_SECRET_KEY in server env vars`,
-      },
-      {
-        status: 401,
-      },
-    );
-  }
+  // if (!serverConfig.baiduApiKey || !serverConfig.baiduSecretKey) {
+  //   return NextResponse.json(
+  //     {
+  //       error: true,
+  //       message: `missing BAIDU_API_KEY or BAIDU_SECRET_KEY in server env vars`,
+  //     },
+  //     {
+  //       status: 401,
+  //     },
+  //   );
+  // }
 
   try {
     const response = await request(req);
@@ -76,15 +76,25 @@ async function request(req: NextRequest) {
     10 * 60 * 1000,
   );
 
-  const { access_token } = await getAccessToken(
-    serverConfig.baiduApiKey as string,
-    serverConfig.baiduSecretKey as string,
+  // const { access_token } = await getAccessToken(
+  //   serverConfig.baiduApiKey as string,
+  //   serverConfig.baiduSecretKey as string,
+  // );
+  // const fetchUrl = `${baseUrl}${path}?access_token=${access_token}`;
+
+  const timeoutId = setTimeout(
+    () => {
+      controller.abort();
+    },
+    10 * 60 * 1000,
   );
-  const fetchUrl = `${baseUrl}${path}?access_token=${access_token}`;
+
+  const fetchUrl = `${baseUrl}${path}`;
 
   const fetchOptions: RequestInit = {
     headers: {
       "Content-Type": "application/json",
+      Authorization: req.headers.get("Authorization") ?? "",
     },
     method: req.method,
     body: req.body,
