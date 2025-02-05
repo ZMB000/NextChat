@@ -285,6 +285,8 @@ export function getHeaders(ignoreHeaders: boolean = false) {
       ? accessStore.iflytekApiKey && accessStore.iflytekApiSecret
         ? accessStore.iflytekApiKey + ":" + accessStore.iflytekApiSecret
         : ""
+      : isBaidu
+      ? accessStore.baiduApiKey
       : accessStore.openaiApiKey;
     return {
       isGoogle,
@@ -335,6 +337,8 @@ export function getHeaders(ignoreHeaders: boolean = false) {
 
   const authHeader = getAuthHeader();
 
+  console.log("[Debug] [Baidu] apiKey:", apiKey); 
+  
   const bearerToken = getBearerToken(
     apiKey,
     isAzure || isAnthropic || isGoogle,
