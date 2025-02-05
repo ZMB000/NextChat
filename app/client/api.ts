@@ -348,6 +348,11 @@ export function getHeaders(ignoreHeaders: boolean = false) {
     );
   }
 
+  console.log("[Debug] authHeader:", authHeader);
+  console.log("[Debug] bearerToken:", bearerToken);
+  console.log("[Debug] accessCode:", accessStore.accessCode);
+  console.log("[Debug] Final Headers Sent:", headers);
+
   return headers;
 }
 
