@@ -206,6 +206,7 @@ export class ErnieApi implements LLMApi {
             const contentType = res.headers.get("content-type");
             console.log("[Baidu] request response content type: ", contentType);
             responseRes = res;
+            console.log("[Debug] response:", res);
             if (contentType?.startsWith("text/plain")) {
               responseText = await res.clone().text();
               return finish();
