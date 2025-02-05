@@ -83,12 +83,11 @@ async function request(req: NextRequest) {
   // const fetchUrl = `${baseUrl}${path}?access_token=${access_token}`;
 
   const fetchUrl = `${baseUrl}${path}`;
-
+  console.log()
   const fetchOptions: RequestInit = {
     headers: {
       "Content-Type": "application/json",
-      // Authorization: req.headers.get("Authorization") ?? "",
-      Authorization: `Hello`,
+      Authorization: req.headers.get("Authorization") ?? "",
     },
     method: req.method,
     body: req.body,
@@ -97,6 +96,8 @@ async function request(req: NextRequest) {
     duplex: "half",
     signal: controller.signal,
   };
+
+  console.log("Baidu Request Headers: ", fetchOptions.headers);
 
   // #1815 try to refuse some request to some models
   if (serverConfig.customModels && req.body) {
