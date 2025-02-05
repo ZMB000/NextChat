@@ -82,13 +82,6 @@ async function request(req: NextRequest) {
   // );
   // const fetchUrl = `${baseUrl}${path}?access_token=${access_token}`;
 
-  const timeoutId = setTimeout(
-    () => {
-      controller.abort();
-    },
-    10 * 60 * 1000,
-  );
-
   const fetchUrl = `${baseUrl}${path}`;
 
   const fetchOptions: RequestInit = {
